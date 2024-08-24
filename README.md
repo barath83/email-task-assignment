@@ -146,4 +146,10 @@ Here have ensured that atleast each email tested in the example video will pass 
 + `test_email_model.py` - Runs test to check if an email object can be created on stored in a DB successfully
 + `test_fetch_all_emails.py` - Runs test to assert if all emails available in the DB can be fetched and parsed
 + `test_fetch_store_emails.py` - Runs test to check if emails can be fetched from the mail account and stored in local DB
-+ `test_process_emails.py` - Runs test to assert if the functions that check and apply rules are logically correct 
++ `test_process_emails.py` - Runs test to assert if the functions that check and apply rules are logically correct
+
+### Example recordings 
+Have added the sample screen recordings of the testing, contains three parts in total 
+* [Part 1](https://drive.google.com/file/d/1BfZAAfdimOmEfwr6TOkSWu2Aazsyok59/view?usp=sharing) - Walkthrough over actual emails from account, setting up and authenticating gmail service via code, email schema for DB model, actual code that fetches mails from gmail account to local DB
+* [Part 2](https://drive.google.com/file/d/1hK9GyZMiOE66AySI4HKOKbVHSYzbINoX/view?usp=sharing) - Going over rules, actual code walkthrough over script that applies rules to mails fetched, going over actual rules and their application on fetched emails and it's accuracy
+* [Part 3](https://drive.google.com/file/d/1hpZXtxHIsCLU_eOlHjBaBaWknQ0gMt4A/view?usp=sharing) - Running pytest modules with script as mentioned above and it's results 
