@@ -49,3 +49,87 @@
   python email_processor/process_emails.py
 
 These two scripts will run and execute the features that is required for the application, first command will run and fetch all the emails from the Gmail account and store them in local and the second command will iterate over each rule over each email and will check, apply the rules as per the conditions both in gmail account and in local DB
+
+
+*** Rules explained
+
+```json
+
+[
+    {
+        "id": 1,
+        "case": "rule_1",
+        "rule_level_predicate": "all",
+        "pre_requisites": [
+            {"field":"sender", "predicate": "contains", "value": "barath"},
+            {"field":"subject", "predicate": "contains", "value": "Interview"},
+            {"field":"read_status", "predicate": "equals", "value": "unread"},
+            {"field":"received_date", "predicate": "less_than_days", "value": "2"}
+        ],
+        "actions": [
+            {"action": "move_label", "value": "inbox"},
+            {"action": "change_read_status", "value": "read"}
+        ]
+    },
+    {
+        "id": 2,
+        "case": "rule_2",
+        "rule_level_predicate": "any",
+        "pre_requisites": [
+            {"field":"sender", "predicate": "contains", "value": "hdfc_sales@gmail.com"},
+            {"field":"body", "predicate": "contains", "value": "credit card"},
+            {"field":"received_date", "predicate": "greater_than_days", "value": "5"}
+        ],
+        "actions": [
+            {"action": "move_label", "value": "trash"},
+            {"action": "change_read_status", "value": "unread"}
+        ]
+    },
+    {
+        "id": 3,
+        "case": "rule_3",
+        "rule_level_predicate": "all",
+        "pre_requisites": [
+            {"field":"subject", "predicate": "equals", "value": "Test"},
+            {"field":"body", "predicate": "does_not_contain", "value": "test email"}
+        ],
+        "actions": [
+            {"action": "move_label", "value": "important"},
+            {"action": "change_read_status", "value": "read"}
+        ]
+    },
+    {
+        "id": 4,
+        "case": "rule_4",
+        "rule_level_predicate": "any",
+        "pre_requisites": [
+            {"field":"subject", "predicate": "equals", "value": "Summer Sale"},
+            {"field":"sender", "predicate": "equals", "value": "test-shopping@gmail.com"},
+            {"field":"received_date", "predicate": "greater_than_days", "value": "10"}
+        ],
+        "actions": [
+            {"action": "move_label", "value": "spam"},
+            {"action": "change_read_status", "value": "read"}
+        ]
+    }
+]
+```
+
+Here have ensured that atleast each email tested in the example video will pass exactly one rule here and the corresponding actions will be applied on the same 
+
++ `rule_level_predicate`
+  + Ensures what is the overall ruling that has to be checked for an email
+  + Values - `all or any`
+  + `all` - means that all conditions under **pre_requisites** must pass for the rule to pass
+  + `any` - means that atleast one condition under **pre_requisites** must pass for the rule to pass
+
++ `pre_requisites`
+   + Bunch of condition that each rule has
+   + Each condtion has three parts - `field, predicate, value`
+   + `field` - the field of attribute on which the condition is checked upon like the actual attributes of an email
+   + `predicate` - the condtion criteria that the field will be tested on
+   + `value` - the value to which the field has to match to for the respective field
+
++ `actions`
+   + Each action with multiple action objects
+   + 
