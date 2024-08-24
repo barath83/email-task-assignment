@@ -1,0 +1,9 @@
+pytest.ini
+__pycache__
+gmail_service/token.json
+env
+db/__pycache__/*.pyc
+emails.db
+test_emails.db
+gmail_service/_pycache__/*.pyc
+email_processor/__pycache__/*.pyc

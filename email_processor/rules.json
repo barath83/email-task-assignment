@@ -1,0 +1,58 @@
+[
+    {
+        "id": 1,
+        "case": "rule_1",
+        "rule_level_predicate": "all",
+        "pre_requisites": [
+            {"field":"sender", "predicate": "contains", "value": "barath"},
+            {"field":"subject", "predicate": "contains", "value": "Interview"},
+            {"field":"read_status", "predicate": "equals", "value": "unread"},
+            {"field":"received_date", "predicate": "less_than_days", "value": "2"}
+        ],
+        "actions": [
+            {"action": "move_label", "value": "inbox"},
+            {"action": "change_read_status", "value": "read"}
+        ]
+    },
+    {
+        "id": 2,
+        "case": "rule_2",
+        "rule_level_predicate": "any",
+        "pre_requisites": [
+            {"field":"sender", "predicate": "contains", "value": "hdfc_sales@gmail.com"},
+            {"field":"body", "predicate": "contains", "value": "credit card"},
+            {"field":"received_date", "predicate": "greater_than_days", "value": "5"}
+        ],
+        "actions": [
+            {"action": "move_label", "value": "trash"},
+            {"action": "change_read_status", "value": "unread"}
+        ]
+    },
+    {
+        "id": 3,
+        "case": "rule_3",
+        "rule_level_predicate": "all",
+        "pre_requisites": [
+            {"field":"subject", "predicate": "equals", "value": "Test"},
+            {"field":"body", "predicate": "does_not_contain", "value": "test email"}
+        ],
+        "actions": [
+            {"action": "move_label", "value": "important"},
+            {"action": "change_read_status", "value": "read"}
+        ]
+    },
+    {
+        "id": 4,
+        "case": "rule_4",
+        "rule_level_predicate": "any",
+        "pre_requisites": [
+            {"field":"subject", "predicate": "equals", "value": "Summer Sale"},
+            {"field":"sender", "predicate": "equals", "value": "test-shopping@gmail.com"},
+            {"field":"received_date", "predicate": "greater_than_days", "value": "10"}
+        ],
+        "actions": [
+            {"action": "move_label", "value": "spam"},
+            {"action": "change_read_status", "value": "read"}
+        ]
+    }
+]
