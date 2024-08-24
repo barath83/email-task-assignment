@@ -30,12 +30,19 @@ def evaluate_predicate(email_value, predicate, condition_value):
         return (datetime.now() - email_value).days < int(condition_value)
     elif predicate == "greater_than_days":
         return (datetime.now() - email_value).days > int(condition_value)
-    # Add more predicates as needed
+    
     return False
     
 def check_rule(email, rule):
     """
-    Check if an email satisfies all or any of the rule's pre-requisites based on rule_level_predicate.
+        Check if an email satisfies all or any of the rule's pre-requisites based on rule_level_predicate.
+
+        Arguments
+            - email: the actual email on which the rules will be applied 
+            - rule: the rule that will be executed for each email
+
+        Returns
+            - True or False based on if the email passes the rule or not
     """
     rule_level_predicate = rule["rule_level_predicate"]
     pre_requisites = rule["pre_requisites"]

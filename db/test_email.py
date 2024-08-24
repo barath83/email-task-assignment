@@ -5,7 +5,7 @@ from sqlalchemy import (
     String,
     Text,
     DateTime,
-    Boolean  # Import the Boolean type
+    Boolean 
 )
 
 Base = declarative_base()

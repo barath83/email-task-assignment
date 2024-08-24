@@ -10,7 +10,7 @@ from db.email import Session, Email
 def fetch_emails(creds, session):
 
     """
-        Function to fetch all emails available from the account
+        Function to fetch all emails available from the gmail account
         
         Params:
             - creds : credentials from authentication function call

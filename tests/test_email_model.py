@@ -9,7 +9,7 @@ import uuid
 def test_db():
     DATABASE_URL = "sqlite:///test_emails.db" 
     engine = create_engine(DATABASE_URL)
-    Base.metadata.create_all(engine)  # Ensure the schema is created
+    Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     session = Session()
 
@@ -17,16 +17,15 @@ def test_db():
     yield session
 
     # Cleanup: delete all records after tests
-    session.query(TestEmail).delete()  # Delete all records from the TestEmail table
+    session.query(TestEmail).delete()  
     session.commit()
 
     session.close()
-    engine.dispose()  # Dispose the engine to clean up resources
-
+    engine.dispose()  
 @pytest.fixture
 def new_email():
     return TestEmail(
-        message_id=str(uuid.uuid4()),  # Ensure a unique message ID
+        message_id=str(uuid.uuid4()),
         sender="sender@example.com",
         recipient="recipient@example.com",
         subject="Test Subject",

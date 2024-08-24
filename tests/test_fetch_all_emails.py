@@ -13,7 +13,6 @@ Session = sessionmaker(bind=engine)
 def setup_database():
     # Create tables in the test database
     Base.metadata.create_all(engine)
-    # Create a test session
     session = Session()
     
     # Add some test data
@@ -27,7 +26,7 @@ def setup_database():
     yield session
 
     # Cleanup: delete all records after tests
-    session.query(TestEmail).delete()  # Delete all records from the TestEmail table
+    session.query(TestEmail).delete() 
     session.commit()
     
     # Cleanup after each test

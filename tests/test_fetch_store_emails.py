@@ -5,7 +5,7 @@ from db.email import Base, Email
 from email_processor.fetch_store_emails import fetch_emails
 from gmail_service.authenticate import authenticate
 
-DATABASE_URL = "sqlite:///test_emails.db"  # Use a separate test database
+DATABASE_URL = "sqlite:///test_emails.db" 
 
 @pytest.fixture(scope='function')
 def test_db():
