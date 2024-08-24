@@ -1,7 +1,5 @@
 ## Installation
 
-Follow these steps to set up the Email Task Assignment project on your local machine:
-
 ### Prerequisites
 
 - **Python 3.x:** Ensure Python is installed on your machine.
@@ -19,3 +17,8 @@ Follow these steps to set up the Email Task Assignment project on your local mac
    ```bash
    python -m venv venv
    source venv/bin/activate
+4. **Install Dependencies**:
+   ```bash
+   pip install -r requirements.txt
+
+
