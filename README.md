@@ -31,4 +31,8 @@
 5. Again select **OAuth screen content** from the left pane and proceed to creating credentials
 6. Select **OAuth Client ID** as type and on the next screen chose **Desktop App** as application type
 7. Either publish the app in public mode with your domain and other details or you can use the credentials with a testing account as well
-8. Once the OAuth client id is created, click on the download icon and store the **credentials.json** file
+8. Once the OAuth client id is created, click on the download icon and store the file in **gmail_service/creds.json** path of the project
+9. Run the file authenticate.py using the command
+    ```bash
+    python gmail_service/authenticate.py
+10. This will open your browser and prompt the authentication confirmation, once done **gmail_service/token.json** which will be used from now on based on it's expiry limit
