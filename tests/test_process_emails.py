@@ -1,7 +1,7 @@
 import pytest
 from datetime import datetime, timedelta
 from db.test_email import TestEmail
-from email_processor.process_emails import check_predicate, evaluate_predicate, check_rule
+from email_processor.process_emails import evaluate_predicate, check_rule
 
 # Mock function to simulate Gmail API
 def mock_get_label_id(service, label_name):
@@ -36,14 +36,6 @@ def mock_rules():
             ]
         }
     ]
-
-# Test for check_predicate
-def test_check_predicate(mock_email):
-    condition = {"field": "subject", "predicate": "contains", "value": "Test"}
-    assert check_predicate(mock_email, condition) == True
-
-    condition = {"field": "subject", "predicate": "does_not_contain", "value": "Hello"}
-    assert check_predicate(mock_email, condition) == True
 
 # Test for evaluate_predicate
 def test_evaluate_predicate():
