@@ -24,7 +24,7 @@
 
 ### Setting up Google API Service and Credentials
 
-1. Go to Google Cloud Console - [Here][https://console.cloud.google.com/]
+1. Go to Google Cloud Console - [Here](https://console.cloud.google.com/)
 2. Create a new project
 3. Once a project is created, go to **API&Services** Section on the left side pane of your project
 4. Select **Gmail service** and enable it
