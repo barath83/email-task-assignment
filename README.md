@@ -51,7 +51,7 @@
 These two scripts will run and execute the features that is required for the application, first command will run and fetch all the emails from the Gmail account and store them in local and the second command will iterate over each rule over each email and will check, apply the rules as per the conditions both in gmail account and in local DB
 
 
-*** Rules explained
+### Rules explained
 
 ```json
 
@@ -132,4 +132,18 @@ Here have ensured that atleast each email tested in the example video will pass 
 
 + `actions`
    + Each action with multiple action objects
-   + 
+   + Each object has two keys - `action, value`
+   + `action` - specifies what is the predicate action that has to follow
+   + `value` - specifies what is the actual value that has to be applied
+
+ ### Pytest modules 
+
+ All pytest modules are available under the folder **tests/** and can be run using the command 
+ ```bash
+ pytest tests/
+ ```
+
++ `test_email_model.py` - Runs test to check if an email object can be created on stored in a DB successfully
++ `test_fetch_all_emails.py` - Runs test to assert if all emails available in the DB can be fetched and parsed
++ `test_fetch_store_emails.py` - Runs test to check if emails can be fetched from the mail account and stored in local DB
++ `test_process_emails.py` - Runs test to assert if the functions that check and apply rules are logically correct 
