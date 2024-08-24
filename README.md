@@ -36,3 +36,16 @@
     ```bash
     python gmail_service/authenticate.py
 10. This will open your browser and prompt the authentication confirmation, once done **gmail_service/token.json** which will be used from now on based on it's expiry limit
+
+
+### Running scripts 
+
++ Fetching emails from Gmail and storing in local DB 
+  ```bash
+  python email_processor/fetch_store_emails.py
+
++ Apply rules and modify the emails in Gmail account and in local DB
+  ```bash
+  python email_processor/process_emails.py
+
+These two scripts will run and execute the features that is required for the application, first command will run and fetch all the emails from the Gmail account and store them in local and the second command will iterate over each rule over each email and will check, apply the rules as per the conditions both in gmail account and in local DB
